@@ -9,7 +9,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projeto.cep.api.model.FreteDTO;
+import com.projeto.cep.api.assembler.FreteDTOAssembler;
+import com.projeto.cep.api.assembler.FreteInputDisassembler;
+import com.projeto.cep.api.dto.FreteDTO;
 import com.projeto.cep.domain.calcularfrete.TestCalcuatore;
 import com.projeto.cep.domain.exception.NegocioException;
 import com.projeto.cep.domain.model.Frete;
@@ -23,23 +25,34 @@ public class CadastroFreteService {
 
 	
     @Autowired
-    private FreteRepository repository;
+    private FreteRepository freterepository;
     
     @Autowired
     private ViaCepWebService webService;
+    
+    @Autowired
+    private FreteInputDisassembler freteInputDisassembler;
+    
+    @Autowired FreteDTOAssembler  freteDTOAssembler;
+    
+//    @Transactional
+//    public FreteDTO save(FreteInput freteInput){
+//        Frete frete = freteInputDisassembler.toDomainObject(freteInput);
+//        return freteDTOAssembler.toModel(freterepository.save(frete));
+//    }
     
     @Transactional
     public FreteDTO save(FreteDTO dto){
         Frete entity = new Frete();
         entity = copyDtoToEntity(entity, dto);
-        repository.save(entity);
+        freterepository.save(entity);
         return new FreteDTO(entity);
     }
-	
+  
 	
 	  @Transactional
 	    public List<Frete> findFrete(String cepOrigem, String cepDestino, String nomeDestinatario) {
-	        List<Frete> result = repository.findByFrete(cepOrigem, cepDestino, nomeDestinatario);
+	        List<Frete> result = freterepository.findByFrete(cepOrigem, cepDestino, nomeDestinatario);
 
 	        if (result.isEmpty()) {
 	            throw new NegocioException("Cliente não Localizado");

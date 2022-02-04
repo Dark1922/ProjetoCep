@@ -4,11 +4,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.projeto.cep.api.model.FreteInput;
+import com.projeto.cep.api.dto.FreteInput;
 import com.projeto.cep.domain.model.Frete;
 
 @Component
-public class CidadeInputDisassembler {
+public class FreteInputDisassembler {
 	@Autowired
 	private ModelMapper modelMapper;
 

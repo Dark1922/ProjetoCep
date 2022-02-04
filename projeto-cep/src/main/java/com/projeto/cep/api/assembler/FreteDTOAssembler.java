@@ -7,11 +7,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.projeto.cep.api.model.FreteDTO;
+import com.projeto.cep.api.dto.FreteDTO;
 import com.projeto.cep.domain.model.Frete;
 
 @Component
-public class RestauranteModelAssembler {
+public class FreteDTOAssembler {
 
 	@Autowired
 	private ModelMapper modelMapper;
