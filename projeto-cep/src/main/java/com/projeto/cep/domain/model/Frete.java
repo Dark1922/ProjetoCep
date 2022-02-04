@@ -43,6 +43,5 @@ public class Frete {
 	    
 	    private Double vlTotalFrete;
 	   
-	    private Integer preco = 1;
 	
 }

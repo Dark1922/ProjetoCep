@@ -32,14 +32,14 @@ public class FreteDTO {
 
 	private Double vlTotalFrete;
 
-	public FreteDTO(Frete entity) {
-		id = entity.getId();
-		cepOrigem = entity.getCepOrigem();
-		cepDestino = entity.getCepDestino();
-		vlTotalFrete = entity.getVlTotalFrete();
-		dataPrevistaEntrega = entity.getDataPrevistaEntrega();
-		peso = entity.getPeso();
-		nomeDestinatario = entity.getNomeDestinatario();
+	public FreteDTO(Frete frete) {
+		id = frete.getId();
+		cepOrigem = frete.getCepOrigem();
+		cepDestino = frete.getCepDestino();
+		vlTotalFrete = frete.getVlTotalFrete();
+		nomeDestinatario = frete.getNomeDestinatario();
+		peso = frete.getPeso();
+		dataPrevistaEntrega = frete.getDataPrevistaEntrega();
 	}
 
 }

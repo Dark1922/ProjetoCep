@@ -9,8 +9,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projeto.cep.api.assembler.FreteDTOAssembler;
-import com.projeto.cep.api.assembler.FreteInputDisassembler;
 import com.projeto.cep.api.dto.FreteDTO;
 import com.projeto.cep.domain.calcularfrete.TestCalcuatore;
 import com.projeto.cep.domain.exception.NegocioException;
@@ -30,16 +28,7 @@ public class CadastroFreteService {
     @Autowired
     private ViaCepWebService webService;
     
-    @Autowired
-    private FreteInputDisassembler freteInputDisassembler;
-    
-    @Autowired FreteDTOAssembler  freteDTOAssembler;
-    
-//    @Transactional
-//    public FreteDTO save(FreteInput freteInput){
-//        Frete frete = freteInputDisassembler.toDomainObject(freteInput);
-//        return freteDTOAssembler.toModel(freterepository.save(frete));
-//    }
+ 
     
     @Transactional
     public FreteDTO save(FreteDTO dto){
