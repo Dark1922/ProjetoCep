@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.projeto.cep.domain.model.Frete;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,24 +21,31 @@ import lombok.Setter;
 @Setter
 public class FreteDTO {
 
+	@ApiModelProperty(example = "1", position = 0) 
 	private Long id;
 	
+	@ApiModelProperty(example = "15230-000",position = 1, required = true) 
 	@NotBlank
 	private String cepOrigem;
 
+	@ApiModelProperty(example = "17800-000",position = 4 ,required = true) 
 	@NotBlank
 	private String cepDestino;
 
+	@ApiModelProperty(example = "38.92", position = 6, required = true)
 	@NotNull
 	private Double peso;
 
+	@ApiModelProperty(example = "Lucas Almeida Almirante", position = 7, required = true)
 	@NotBlank
 	private String nomeDestinatario;
 
+	@ApiModelProperty(example = "2022-02-04 14:18:23", position = 9)
 	@CreationTimestamp
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime dataPrevistaEntrega;
 
+	@ApiModelProperty(example = "30.0", position = 11)
 	private Double vlTotalFrete;
 
 	public FreteDTO(Frete frete) {

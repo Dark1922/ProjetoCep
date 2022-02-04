@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto.cep.api.dto.FreteDTO;
+import com.projeto.cep.api.openapi.FreteControllerOpenApi;
 import com.projeto.cep.domain.model.Cep;
 import com.projeto.cep.domain.model.Frete;
 import com.projeto.cep.domain.repository.FreteRepository;
@@ -24,7 +25,7 @@ import com.projeto.cep.domain.service.CadastroFreteService;
 
 @RestController
 @RequestMapping(path = "/frete", produces = MediaType.APPLICATION_JSON_VALUE)
-public class FreteCepController {
+public class FreteCepController implements FreteControllerOpenApi {
 
 	@Autowired
 	private viaCepConsumer viaCepConsumer;
@@ -62,10 +63,5 @@ public class FreteCepController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(cadastroFreteService.save(freteDTO));
 	}
 
-	@GetMapping(value = "/cepOrigem/{cepOrigem}/cepDestino/{cepDestino}/nomeDestinatario/{nomeDestinatario}")
-	public ResponseEntity<List<Frete>> findFrete(@PathVariable String cepOrigem, @PathVariable String cepDestino,
-			@PathVariable String nomeDestinatario) {
-		return ResponseEntity.ok().body(cadastroFreteService.findFrete(cepOrigem, cepDestino, nomeDestinatario));
-	}
 
 }
