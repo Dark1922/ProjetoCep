@@ -1,8 +1,8 @@
- <h3 align="center">🚀 # Projeto de Frete</h3>
+ <h2 align="center">🚀 # Projeto de Frete</h2>
 
 ![image](https://user-images.githubusercontent.com/48605830/152583270-ba24ad67-a746-42c2-b0fd-7ecf31aa5fa7.png)
 
-<h3 align="center">Objetivo<h3>
+<h3 align="center"> 📑 # Objetivo<h3>
 Implementar para empresa de transporte de cargas SigaBem o endpoint para o cálculo do preço do frete:
 
 Você deve calcular o valor total do frete e a data prevista da entrega.
