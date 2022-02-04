@@ -15,26 +15,26 @@ import lombok.Getter;
 @Getter
 @Builder
 public class Problem {
-	
+
 	@ApiModelProperty(example = "400", position = 1)
 	private Integer status;
-	
+
 	@ApiModelProperty(example = "2021-12-01T18:09:02.70844Z", position = 5)
 	private OffsetDateTime timestamp;
-	
+
 	@ApiModelProperty(example = "https://SigaBemViaCep.com.br/dados-invalidos", position = 10)
 	private String type;
-	
+
 	@ApiModelProperty(example = "Dados inválidos", position = 15)
 	private String title;
-	
-	@ApiModelProperty(example = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.",position = 20)
+
+	@ApiModelProperty(example = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.", position = 20)
 	private String detail;
-	
-	@ApiModelProperty(example = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.",position = 25) 
+
+	@ApiModelProperty(example = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.", position = 25)
 	private String userMessage;
-	
-	@ApiModelProperty(value = "Lista de objetos ou campos que geraram o erro (opcional)",position = 30) 
+
+	@ApiModelProperty(value = "Lista de objetos ou campos que geraram o erro (opcional)", position = 30)
 	private List<Object> objects;
 
 	@ApiModel("Problema")
@@ -42,10 +42,10 @@ public class Problem {
 	@Builder
 	public static class Object {
 
-		@ApiModelProperty(example = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.",position = 5) 
+		@ApiModelProperty(example = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.", position = 5)
 		private String name;
-		
-		@ApiModelProperty(example = "Aceitamos somente application/json / acessou uma requisição inválida",position = 10) 
+
+		@ApiModelProperty(example = "Aceitamos somente application/json / acessou uma requisição inválida", position = 10)
 		private String userMessage;
 
 	}

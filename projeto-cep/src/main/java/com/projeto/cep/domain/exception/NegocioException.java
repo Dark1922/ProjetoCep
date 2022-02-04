@@ -5,10 +5,10 @@ public class NegocioException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	public NegocioException(String msg) {
-		super(msg); //resultado padrão not found
+		super(msg); 
 	}
-	
-	public NegocioException(String mensagem, Throwable causa) {//Throwable pai de todas exceções que é a causa
+
+	public NegocioException(String mensagem, Throwable causa) {
 		super(mensagem, causa);
 	}
 

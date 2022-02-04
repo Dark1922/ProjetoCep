@@ -10,16 +10,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FreteInput {
-	
+
 	@NotBlank
 	private String cepOrigem;
-	
+
 	@NotBlank
 	private String cepDestino;
-	
+
 	@NotBlank
 	private Double peso;
-	
+
 	@NotBlank
 	private String nomeDestinatario;
 

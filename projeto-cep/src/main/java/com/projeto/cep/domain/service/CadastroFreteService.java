@@ -81,10 +81,9 @@ public class CadastroFreteService {
 
 		return entity;
 	}
-	
+
 	public Frete buscarOuFalhar(Long freteId) {
-	    return freterepository.findById(freteId)
-	        .orElseThrow(() -> new CepNaoEncontradoException(freteId));
+		return freterepository.findById(freteId).orElseThrow(() -> new CepNaoEncontradoException(freteId));
 	}
 
 }

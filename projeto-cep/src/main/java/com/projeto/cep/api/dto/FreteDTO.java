@@ -15,20 +15,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @NoArgsConstructor
 @Getter
 @Setter
 public class FreteDTO {
 
-	@ApiModelProperty(example = "1", position = 0) 
+	@ApiModelProperty(example = "1", position = 0)
 	private Long id;
-	
-	@ApiModelProperty(example = "15230-000",position = 1, required = true) 
+
+	@ApiModelProperty(example = "15230-000", position = 1, required = true)
 	@NotBlank
 	private String cepOrigem;
 
-	@ApiModelProperty(example = "17800-000",position = 4 ,required = true) 
+	@ApiModelProperty(example = "17800-000", position = 4, required = true)
 	@NotBlank
 	private String cepDestino;
 
@@ -48,6 +47,11 @@ public class FreteDTO {
 	@ApiModelProperty(example = "30.0", position = 11)
 	private Double vlTotalFrete;
 
+	@ApiModelProperty(example = "2022-02-04 14:18:23", position = 9)
+	@CreationTimestamp
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime dataConsulta;
+
 	public FreteDTO(Frete frete) {
 		id = frete.getId();
 		cepOrigem = frete.getCepOrigem();
@@ -56,6 +60,7 @@ public class FreteDTO {
 		nomeDestinatario = frete.getNomeDestinatario();
 		peso = frete.getPeso();
 		dataPrevistaEntrega = frete.getDataPrevistaEntrega();
+		dataConsulta = frete.getDataConsulta();
 	}
 
 }

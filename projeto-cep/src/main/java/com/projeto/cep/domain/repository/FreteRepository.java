@@ -11,7 +11,7 @@ import com.projeto.cep.domain.model.Frete;
 @Repository
 public interface FreteRepository extends JpaRepository<Frete, Long> {
 
-	 @Query("SELECT obj FROM Frete obj WHERE obj.cepOrigem = :cepOrigem AND " + "obj.cepDestino = :cepDestino AND "
-	            + "obj.nomeDestinatario = :nomeDestinatario ")
-	    List<Frete> findByFrete(String cepOrigem, String cepDestino, String nomeDestinatario);
-	 }
+	@Query("SELECT obj FROM Frete obj WHERE obj.cepOrigem = :cepOrigem AND " + "obj.cepDestino = :cepDestino AND "
+			+ "obj.nomeDestinatario = :nomeDestinatario ")
+	List<Frete> findByFrete(String cepOrigem, String cepDestino, String nomeDestinatario);
+}

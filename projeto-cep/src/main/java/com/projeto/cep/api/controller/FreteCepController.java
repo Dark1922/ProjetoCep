@@ -32,10 +32,9 @@ public class FreteCepController implements FreteControllerOpenApi {
 
 	@Autowired
 	private CadastroFreteService cadastroFreteService;
-	
+
 	@Autowired
 	private FreteRepository freteRepository;
-	
 
 	/* Consulta dados de um cep completo */
 	@GetMapping(value = "/consultar-cep/{cepNumber}")
@@ -43,25 +42,24 @@ public class FreteCepController implements FreteControllerOpenApi {
 		Cep result = viaCepConsumer.getCep(cepNumber);
 		return ResponseEntity.ok().body(result);
 	}
-	
-	/*Buscar Todos*/
+
+	/* Buscar Todos */
 	@GetMapping
 	public ResponseEntity<List<Frete>> findAll() {
 		return ResponseEntity.ok(freteRepository.findAll());
 	}
-	
-	/*Buscar Por Id*/
+
+	/* Buscar Por Id */
 	@GetMapping("/{id}")
 	public ResponseEntity<FreteDTO> BuscarPorId(@PathVariable Long id) {
-        Frete frete = cadastroFreteService.buscarOuFalhar(id);
-        	return new ResponseEntity<FreteDTO>(new FreteDTO(frete), HttpStatus.OK);
+		Frete frete = cadastroFreteService.buscarOuFalhar(id);
+		return new ResponseEntity<FreteDTO>(new FreteDTO(frete), HttpStatus.OK);
 	}
 
-	/*Cadastro de Frete com regra de negócio */
+	/* Cadastro de Frete com regra de negócio */
 	@PostMapping
 	public ResponseEntity<FreteDTO> save(@RequestBody @Valid FreteDTO freteDTO) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(cadastroFreteService.save(freteDTO));
 	}
-
 
 }
