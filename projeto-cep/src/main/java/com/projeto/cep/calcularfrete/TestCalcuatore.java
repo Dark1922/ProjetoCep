@@ -1,4 +1,4 @@
-package com.projeto.cep.domain.calcularfrete;
+package com.projeto.cep.calcularfrete;
 
 import com.projeto.cep.domain.model.Frete;
 
