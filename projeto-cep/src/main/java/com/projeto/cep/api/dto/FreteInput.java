@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FreteInput {
+	
 	@NotBlank
 	private String cepOrigem;
 	

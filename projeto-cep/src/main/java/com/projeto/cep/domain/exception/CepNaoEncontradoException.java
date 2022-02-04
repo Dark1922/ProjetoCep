@@ -1,17 +1,15 @@
 package com.projeto.cep.domain.exception;
 
-import com.projeto.cep.domain.model.Cep;
-
-public class CepNaoEncontradoException extends RuntimeException {
+public class CepNaoEncontradoException extends EntidadeNaoEncontradaException {
 
 	private static final long serialVersionUID = 1L;
 
-	public CepNaoEncontradoException(Cep cep) {
-		this(String.format("Não existe um cadastro de cep com o números, escreva um cep válido %s", cep.getCep()));;
+	public CepNaoEncontradoException(String msg) {
+		super(msg); 
 	}
 
-	public CepNaoEncontradoException(String message) {
-		super(message);
+	public CepNaoEncontradoException(Long freteId) {//constructor dando o this no construtor acima mandando uma msg padrão
+		this(String.format("Não existe um cadastro de frete com o código %d", freteId));
 	}
 	
 

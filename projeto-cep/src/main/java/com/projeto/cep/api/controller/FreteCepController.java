@@ -1,7 +1,8 @@
 package com.projeto.cep.api.controller;
 
 import java.util.List;
-import java.util.Optional;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,7 @@ public class FreteCepController {
 	
 	@Autowired
 	private FreteRepository freteRepository;
+	
 
 	/* Consulta dados de um cep completo */
 	@GetMapping(value = "/consultar-cep/{cepNumber}")
@@ -50,12 +52,13 @@ public class FreteCepController {
 	/*Buscar Por Id*/
 	@GetMapping("/{id}")
 	public ResponseEntity<FreteDTO> BuscarPorId(@PathVariable Long id) {
-        Optional<Frete> frete = freteRepository.findById(id);
-        return new ResponseEntity<FreteDTO>(new FreteDTO(frete.get()), HttpStatus.OK);
+        Frete frete = cadastroFreteService.buscarOuFalhar(id);
+        	return new ResponseEntity<FreteDTO>(new FreteDTO(frete), HttpStatus.OK);
 	}
 
+	/*Cadastro de Frete com regra de negócio */
 	@PostMapping
-	public ResponseEntity<FreteDTO> save(@RequestBody FreteDTO freteDTO) {
+	public ResponseEntity<FreteDTO> save(@RequestBody @Valid FreteDTO freteDTO) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(cadastroFreteService.save(freteDTO));
 	}
 

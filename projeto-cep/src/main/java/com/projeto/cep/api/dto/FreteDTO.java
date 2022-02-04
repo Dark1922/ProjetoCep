@@ -2,6 +2,9 @@ package com.projeto.cep.api.dto;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -11,6 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -18,12 +22,16 @@ public class FreteDTO {
 
 	private Long id;
 	
+	@NotBlank
 	private String cepOrigem;
 
+	@NotBlank
 	private String cepDestino;
 
+	@NotNull
 	private Double peso;
 
+	@NotBlank
 	private String nomeDestinatario;
 
 	@CreationTimestamp
